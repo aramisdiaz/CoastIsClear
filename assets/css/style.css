@@ -1,0 +1,13 @@
+.jumbotron {
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    text-shadow: 2px 2px 5px rgb(40, 47, 49);
+    text-align: center; 
+    background-image: url(https://www.surfertoday.com/images/jamp/page/beachquotes.jpg);
+}
+
+.lead {
+    color: #333333;
+}

@@ -10,10 +10,19 @@
   var WTRqueryURL = "https://api.stormglass.io/v2/tide/extremes/point"
 
 
+
+  
+
+
+
+
+
   // Here we run our AJAX call to the OpenWeatherMap API
   $.ajax({
     url: MAPqueryURL,
-    method: "GET"
+    method: "GET",
+    dataType: 'jsonp',
+    cache: false,
   })
     // We store all of the retrieved data inside of an object called "response"
     .then(function(response) {

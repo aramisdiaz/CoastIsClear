@@ -2,7 +2,8 @@ body {
     background-image: url("../images/webpage-bg.png");
     background-size: cover;
     background-repeat: none;
-}
+    text-align: center
+};
 ​
 .jumbotron {
     color: #009999;
@@ -21,20 +22,27 @@ body {
     color: white;
 }
 ​
-​
+​h1{
+margin-left: 20%;
+background-color: #33cccc;
+border-radius: 10px;
+}
 ​
 /*Responsive===========================================================================================*/
-@media screen and (max-width: 768px){
+
+@media screen and (max-width: 768px) {
     body {
         background-image: url("../images/tablet.png");
         background-size: cover;
         background-repeat: none;
     }
 }
+
 ​
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
     body {
         background-image: url("../images/mobile.png");
         background-size: cover;
         background-repeat: none;
     }
+}

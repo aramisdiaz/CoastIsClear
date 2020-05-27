@@ -15,9 +15,9 @@
   
   var latitude = 0;
   var longitude = 0;
-  var params = ""
-  var place = ""
-
+  var params = "";
+  var place = "";
+  var start = "";
   
   
 
@@ -47,27 +47,36 @@
       // Log the resulting object
       console.log(response);
     
-      
+      console.log(moment().format("YYYY-MM-DD HH:MM"))
+      //1970-01-11 00:00
   
-      
+      start = moment().format("YYYY-MM-DD HH:MM")
       latitude = response.results[0].geometry.location.lat;
       longitude = response.results[0].geometry.location.lng;
-      params = "waterTemperature"
+      params = "waterTemperature,airTemperature,cloudCover,gust"
       // Transfer content to HTML IMPORTANT
     
      console.log(latitude);
      console.log(longitude);
 
      
-    fetch(`https://api.stormglass.io/v2/weather/point?lat=${latitude}&lng=${longitude}&params=${params}`, {
+    fetch(`https://api.stormglass.io/v2/weather/point?start=${start}&lat=${latitude}&lng=${longitude}&params=${params}`, {
       headers: {
         'Authorization': wtrAPIKey
       }
     }).then((response) => response.json()).then((jsonData) => {
       // Do something with response data
-      console.log(jsonData)
+      console.log(jsonData);
+     
 
-      $("#temp").html("<h1>The water temperature is " + (((jsonData.hours[0].waterTemperature.meto) * 9/5) + 32) + " degrees Fahrenheit!</h1>");
+      $("#temp").html(
+        "<h1>The water temperature is " + Math.floor(((jsonData.hours[0].waterTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h1><h1>The air temperature is " + Math.floor(((jsonData.hours[0].airTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h1>"
+      
+      
+      
+      
+      
+        );
     });
 
 

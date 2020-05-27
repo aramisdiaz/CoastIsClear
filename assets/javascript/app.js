@@ -1,3 +1,22 @@
+$(document).ready(function() {
+  $(".menu-icon").on("click", function() {
+        $("nav ul").toggleClass("showing");
+  });
+});
+
+// Scrolling Effect
+
+$(window).on("scroll", function() {
+  if($(window).scrollTop()) {
+        $('nav').addClass('blue');
+  }
+
+  else {
+        $('nav').removeClass('blue');
+  }
+});
+
+  
   // This is our API key
   var mapAPIKey = "AIzaSyCAgC_4Ah49trBRbFVc3emcuZ-vzz8yEcA";
   var wtrAPIKey = "cd080552-9bd7-11ea-b3e2-0242ac130002-cd080606-9bd7-11ea-b3e2-0242ac130002";

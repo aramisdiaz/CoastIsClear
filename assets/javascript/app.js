@@ -1,8 +1,10 @@
+
 $(document).ready(function() {
   $(".menu-icon").on("click", function() {
         $("nav ul").toggleClass("showing");
+        
   });
-});
+
 
 // Scrolling Effect
 
@@ -14,23 +16,18 @@ $(window).on("scroll", function() {
   else {
         $('nav').removeClass('blue');
   }
-});
+})
 
-  
   // This is our API key
   var mapAPIKey = "AIzaSyCAgC_4Ah49trBRbFVc3emcuZ-vzz8yEcA";
   var wtrAPIKey = "cd080552-9bd7-11ea-b3e2-0242ac130002-cd080606-9bd7-11ea-b3e2-0242ac130002";
-
 
   // Here we are building the URL we need to query the database
 
   var inputPlace;
 
-
   //Add variables for location, etc.
   var WTRqueryURL = "https://api.stormglass.io/v2/tide/extremes/point";
-
-
   
   var latitude = 0;
   var longitude = 0;
@@ -38,19 +35,15 @@ $(window).on("scroll", function() {
   var place = "";
   var start = "";
   
-  
-
-  $("#place-submit").on("click", function() {
+  $("#inputBeach").on("click", function(event) {
     
+    event.preventDefault();
+    autoScrollTo("weather");
     place = $("#place-input").val().trim();
-    
-    
-
 
   // Here we run our AJAX call to the Google Places API
 
   var MAPqueryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=beaches+in+" + place + "&key=" + mapAPIKey;
-
 
   $.ajax({
     url: MAPqueryURL,
@@ -89,7 +82,7 @@ $(window).on("scroll", function() {
      
 
       $("#temp").html(
-        "<h1>The water temperature is " + Math.floor(((jsonData.hours[0].waterTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h1><h1>The air temperature is " + Math.floor(((jsonData.hours[0].airTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h1>"
+        "<h2>The water temperature is " + Math.floor(((jsonData.hours[0].waterTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h2><h2>The air temperature is " + Math.floor(((jsonData.hours[0].airTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h2>"
       
       
       
@@ -104,5 +97,5 @@ $(window).on("scroll", function() {
   
 
     });
-
+  });
 

@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js."></script>
+    <script src="assets/javascript/app.js"></script>
     <script src="assets/javascript/autoScrollTo.js"></script>
 
 </head>
@@ -23,7 +23,7 @@
                  <i class="fa fa-bars fa-2x"></i>
               </div>
               <div class="logo">
-                 <img src="logo6.png" alt="logo" id="logo">
+                 <img src="assets/images/logo6.png" alt="logo" id="logo">
               </div>
               <div class="menu">
                  <ul>
@@ -40,10 +40,10 @@
               </fieldset>
               <div class="inner-form">
                 <div class="input-field first-wrap">
-                  <input id="city" type="text" placeholder="What City?" />
+                  <input id="place-input" type="text" placeholder="What City?" />
                 </div>
                 <div class="input-field third-wrap">
-                  <button class="btn-search" id="inputBeach" type="button" onclick="return false;" onmousedown="autoScrollTo('weather');">Search</button>
+                  <button class="btn-search" id="inputBeach" type="button" >Search</button>
                 </div>
               </div>
             </form>
@@ -76,7 +76,7 @@
                    </div>
               </div>
               <div class="col-12 col-xl-4 order-3 order-xl-4">
-                <div class="d-flex align-items-center justify-content-center h2 block">
+                <div id="temp" class="d-flex align-items-center justify-content-center h2 block">
                     <!-- centered content here -->
                    </div>
               </div>
@@ -89,7 +89,7 @@
         </div>
        
     </footer>
-    <a href="#" id="scroll" onclick="return false;" onmousedown="resetScroller('logo');">search another beach...</a>
+    <a href="#" id="scroll" onmousedown="resetScroller('logo');">search another beach...</a>
     </div>
 </body>
 </html>

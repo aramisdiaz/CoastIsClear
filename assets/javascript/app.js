@@ -24,10 +24,10 @@ $(window).on("scroll", function() {
 
   // Here we are building the URL we need to query the database
 
-  var inputPlace;
+  //var inputPlace;
 
   //Add variables for location, etc.
-  var WTRqueryURL = "https://api.stormglass.io/v2/tide/extremes/point";
+  //var WTRqueryURL = "https://api.stormglass.io/v2/tide/extremes/point";
   
   var latitude = 0;
   var longitude = 0;
@@ -49,7 +49,7 @@ $(window).on("scroll", function() {
 
   // Here we run our AJAX call to the Google Places API
 
-  var MAPqueryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=swimming+in+" + place + "&key=" + mapAPIKey;
+  var MAPqueryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=beaches+in+" + place + "&key=" + mapAPIKey;
 
   $.ajax({
     url: MAPqueryURL,
@@ -73,6 +73,10 @@ $(window).on("scroll", function() {
       longitude = response.results[0].geometry.location.lng;
       params = "waterTemperature,airTemperature,cloudCover,gust,precipitation"
       // Transfer content to HTML IMPORTANT
+
+      var mapWidgetURL = "https://www.google.com/maps/embed/v1/streetview?key=" + mapAPIKey + "&location=" + latitude + "," + longitude + "&heading=210&pitch=10&fov=35"
+
+      $("#mapwidget").attr("src", mapWidgetURL)
     
      console.log(latitude);
      console.log(longitude);
@@ -120,7 +124,7 @@ $(window).on("scroll", function() {
 
       $("#temp").html(
 
-        "<h1>Conditions here are a " + placeScore + "/10 right now!</h1>"
+        "<h1>We give this spot a rating of " + placeScore + "/10 right now!</h1>"
 
         );
 

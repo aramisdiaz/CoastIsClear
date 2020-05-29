@@ -183,10 +183,18 @@ html {
    * Correct the font size and margin on `h1` elements within `section` and
    * `article` contexts in Chrome, Firefox, and Safari.
    */
-  h1 {
+  .h1 {
     font-size: 64px !important;
     margin: 0.67em 0;
+    padding: 20px;
+    text-align: center;
   }
+
+  .h2 {
+    font-size: 25px;
+    padding: 10px;
+    text-align: center;
+}
   
   /* Grouping content
      ========================================================================== */
@@ -632,7 +640,8 @@ html {
   .s01 form legend {
     font-size: 54px;
     line-height: 1;
-    color: rgb(11, 62, 121) !important;
+    color: white !important;
+    text-shadow: 2px 2px black !important;
     margin-bottom: 40px;
   }
   
@@ -771,9 +780,10 @@ footer {
 
 .block {
     height: 250px;
-    color: #212529;
+    color: white;
     background: rgba(86,61,124,.15);
     margin-bottom: 30px;
+    text-shadow: 1px 1px black !important;
 }
 
 #scroll {
@@ -785,9 +795,10 @@ footer {
 }
 
 #temp {
-  color: black !important; 
+  color: white !important; 
   font-size: 30px !important;
   z-index: 2;
+  text-shadow: 1px 1px black !important;
 }
 
 

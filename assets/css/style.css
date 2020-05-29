@@ -714,7 +714,8 @@ html {
 .s01 form .inner-form .input-field.third-wrap .btn-search:hover {
     background: #2d62d3;
 }
-  
+
+/* Responsive ===================================================================================================================================*/
 @media screen and (max-width: 992px) {
     .s01 form legend {
       font-size: 50px;
@@ -787,4 +788,34 @@ footer {
   color: black !important; 
   font-size: 30px !important;
   z-index: 2;
+}
+
+
+/* Social Media Links in Footer ================================================================================================================*/
+.fa {
+  padding: 60px;
+  font-size: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-instagram {
+  background: #12578880;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007cb580;
+  color: white;
+}
+
+.fa-facebook {
+  background: #3B599880;
+  color: white;
 }

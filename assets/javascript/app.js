@@ -34,8 +34,13 @@ $(window).on("scroll", function() {
   var params = "";
   var place = "";
   var start = "";
+
   
   $("#inputBeach").on("click", function(event) {
+
+  var placeScore = 0;
+  
+
     
     event.preventDefault();
     autoScrollTo("weather");
@@ -43,7 +48,7 @@ $(window).on("scroll", function() {
 
   // Here we run our AJAX call to the Google Places API
 
-  var MAPqueryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=beaches+in+" + place + "&key=" + mapAPIKey;
+  var MAPqueryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=swimming+in+" + place + "&key=" + mapAPIKey;
 
   $.ajax({
     url: MAPqueryURL,
@@ -65,7 +70,7 @@ $(window).on("scroll", function() {
       start = moment().format("YYYY-MM-DD HH:MM")
       latitude = response.results[0].geometry.location.lat;
       longitude = response.results[0].geometry.location.lng;
-      params = "waterTemperature,airTemperature,cloudCover,gust"
+      params = "waterTemperature,airTemperature,cloudCover,gust,precipitation"
       // Transfer content to HTML IMPORTANT
     
      console.log(latitude);
@@ -80,22 +85,78 @@ $(window).on("scroll", function() {
       // Do something with response data
       console.log(jsonData);
      
+      var wTemp = Math.round(((jsonData.hours[0].waterTemperature.noaa) * 9/5) + 32);
+      var aTemp = Math.round(((jsonData.hours[0].airTemperature.noaa) * 9/5) + 32);
+      var cCover = jsonData.hours[0].cloudCover.noaa;
+      var gst = Math.round((jsonData.hours[0].gust.noaa) * 2.237);
+
+      var rawW = Math.abs((wTemp-80)/80);
+      var wtrScore = (2.5 - (2.5 * rawW));
+
+      var rawA = Math.abs((aTemp-88)/88);
+      var airScore = (2.5 - (2.5 * rawA));
+
+      var cldScore = (2.5 - (2.5*(cCover/100)));
+
+      var gustScore = (2.5 - (2.5*(gst/30)));
+
+      console.log("Water temperature is " + wTemp + " degrees Fahrenheit");
+      console.log("Air temperature is " + aTemp + " degrees Fahrenheit");
+      console.log(jsonData.hours[0].precipitation.noaa);
+      var rain = jsonData.hours[0].precipitation.noaa;
+
+      console.log(wtrScore + " " + airScore + " " + cldScore + " " + gustScore);
+
+      placeScore = (Math.round(wtrScore + airScore + cldScore + gustScore));
+
+      console.log(placeScore);
 
       $("#temp").html(
-        "<h2>The water temperature is " + Math.floor(((jsonData.hours[0].waterTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h2><h2>The air temperature is " + Math.floor(((jsonData.hours[0].airTemperature.noaa) * 9/5) + 32) + " degrees Fahrenheit!</h2>"
-      
-      
-      
-      
-      
+
+        "<h1>Conditions here are a " + placeScore + "/10 right now!</h1>"
+
         );
+
+        if (wTemp>=96) {
+          $("#temp").append("The water temperature is a bit high for children and the elderly at " + wTemp + " degrees Fahrenheit!<br>")
+        };
+        if (wTemp<=64) {
+          $("#temp").append("The water temperature is noticeably low at " + wTemp + " degrees Fahrenheit!<br>")
+        };
+        if (aTemp>=90) {
+          $("#temp").append("The air temperature is noticeably high at " + aTemp + " degrees Fahrenheit!<br>")
+        };
+        if (aTemp<=78) {
+          $("#temp").append("The air temperature is noticeably low at " + aTemp + " degrees Fahrenheit!<br>")
+        };
+        if (cCover>=50) {
+          $("#temp").append("The cloud coverage is noticeably high at " + cCover + "%!<br>")
+        };
+        if (gustScore<=2) {
+          $("#temp").append("It is quite windy at " + gst + " mph!<br>")
+        };
+        if (rain>0) {
+          $("#temp").append("Warning! There has been some rain today!<br>")
+        };
+      
+
+    });
+    });
     });
 
+    //Submit on Enter Key
+    var input = document.getElementById("place-input");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("place-submit").click();
+      }
+});
 
-    });
 
-  
 
-    });
-  });
+
+
+    
+
 

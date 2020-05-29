@@ -36,13 +36,15 @@ $(window).on("scroll", function() {
   var start = "";
   var rain = 0;
   
-  $("#inputBeach").on("click", function(event) {
+  function search()  {
+
+    //Clear Values
   $("#data").html("");
   $("#warning").html("");
   var placeScore = 0;
   
 
-    
+    //Scroll down
     event.preventDefault();
     autoScrollTo("weather");
     place = $("#place-input").val().trim();
@@ -154,17 +156,24 @@ $(window).on("scroll", function() {
 
     });
     });
+    };
+
+    $(function() {
+    $("#inputBeach").click(search);
     });
 
+
     //Submit on Enter Key
-    var input = document.getElementById("place-input");
-    input.addEventListener("keyup", function(event) {
-      if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById("inputBeach").click();
-      }
-});
+    
+    $("#input-form").submit(function() {
+      search($("#place-input").get(0));
+      return false;
+  });
+
+    
+
 })
+
 
 
 

@@ -37,7 +37,8 @@ $(window).on("scroll", function() {
   var rain = 0;
   
   $("#inputBeach").on("click", function(event) {
-
+  $("#data").html("");
+  $("#warning").html("");
   var placeScore = 0;
   
 

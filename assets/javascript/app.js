@@ -34,7 +34,7 @@ $(window).on("scroll", function() {
   var params = "";
   var place = "";
   var start = "";
-
+  var rain = 0;
   
   $("#inputBeach").on("click", function(event) {
 
@@ -103,13 +103,19 @@ $(window).on("scroll", function() {
       console.log("Water temperature is " + wTemp + " degrees Fahrenheit");
       console.log("Air temperature is " + aTemp + " degrees Fahrenheit");
       console.log(jsonData.hours[0].precipitation.noaa);
-      var rain = jsonData.hours[0].precipitation.noaa;
+      rain = jsonData.hours[0].precipitation.noaa;
 
       console.log(wtrScore + " " + airScore + " " + cldScore + " " + gustScore);
 
       placeScore = (Math.round(wtrScore + airScore + cldScore + gustScore));
 
       console.log(placeScore);
+
+      
+      $("#data").append("The Water Temperature is " + wTemp + " degrees Fahrenheit.<br>")
+      $("#data").append("The Air Temperature is " + aTemp + " degrees Fahrenheit.<br>")
+      $("#data").append("The Cloud Coverage is " + cCover + "%.<br>")
+      $("#data").append("The Wind Speed is " + gst + " mph.<br>")
 
       $("#temp").html(
 
@@ -118,25 +124,26 @@ $(window).on("scroll", function() {
         );
 
         if (wTemp>=96) {
-          $("#temp").append("The water temperature is a bit high for children and the elderly at " + wTemp + " degrees Fahrenheit!<br>")
+          $("#warning").append("The water temperature is a bit high for children and the elderly at " + wTemp + " degrees Fahrenheit!<br>")
         };
         if (wTemp<=64) {
-          $("#temp").append("The water temperature is noticeably low at " + wTemp + " degrees Fahrenheit!<br>")
+          $("#warning").append("The water temperature is noticeably low at " + wTemp + " degrees Fahrenheit!<br>")
         };
         if (aTemp>=90) {
-          $("#temp").append("The air temperature is noticeably high at " + aTemp + " degrees Fahrenheit!<br>")
+          $("#warning").append("The air temperature is noticeably high at " + aTemp + " degrees Fahrenheit!<br>")
         };
         if (aTemp<=78) {
-          $("#temp").append("The air temperature is noticeably low at " + aTemp + " degrees Fahrenheit!<br>")
+          $("#warning").append("The air temperature is noticeably low at " + aTemp + " degrees Fahrenheit!<br>")
         };
         if (cCover>=50) {
-          $("#temp").append("The cloud coverage is noticeably high at " + cCover + "%!<br>")
+          $("#warning").append("The cloud coverage is noticeably high at " + cCover + "%!<br>")
         };
         if (gustScore<=2) {
-          $("#temp").append("It is quite windy at " + gst + " mph!<br>")
+          $("#warning").append("It is quite windy at " + gst + " mph!<br>")
         };
         if (rain>0) {
-          $("#temp").append("Warning! There has been some rain today!<br>")
+          $("#data").append("The Precipitation Level is " + rain + " kg/m^2.<br>")
+          $("#warning").append("Warning! There has been some rain today!<br>")
         };
       
 
@@ -149,7 +156,7 @@ $(window).on("scroll", function() {
     input.addEventListener("keyup", function(event) {
       if (event.keyCode === 13) {
         event.preventDefault();
-        document.getElementById("place-submit").click();
+        document.getElementById("inputBeach").click();
       }
 });
 })

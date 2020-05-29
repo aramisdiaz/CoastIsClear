@@ -152,7 +152,7 @@ $(window).on("scroll", function() {
         document.getElementById("place-submit").click();
       }
 });
-
+})
 
 
 

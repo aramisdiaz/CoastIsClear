@@ -43,7 +43,6 @@
               <fieldset>
                 <legend>Choose Your Beach!</legend>
               </fieldset>
-              <br>
               <div class="inner-form">
                 <div class="input-field first-wrap">
 
@@ -58,9 +57,10 @@
           </div>
         </header>
         <div class="content" style="text-align: center;">
-          
+           <p>
             <h1>Welcome to Coast Is Clear! </h1>
             <br>
+
             While that might not always be the case, we at Coast Is Clear want to make sure you're prepared whether it is or isn't. 
             <br> <br>
             Check your favorite beaches for Air Temperature, Water Temperature, Cloud Coverage, and Precipitation Levels. 
@@ -68,7 +68,7 @@
             We want to make sure you have the best experience anytime you take a trip to the beach!
             <br> <br>
             We're working on getting you water conditions, foot traffic monitor, marine life. 
-          
+           </p>
            
         </div>
 
@@ -80,7 +80,9 @@
                     <!-- centered content here -->
                         <!-- Add font awesome icons -->
                         
-                        
+                        <a href="https://www.instagram.com/bestcoastisclear/" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-facebook"></a>
                    </div>
               </div>
               <div class="col-12 col-md-6 col-xl-8">
@@ -106,17 +108,20 @@
             </div>
 
         </div>
+<<<<<<< HEAD
        <br>
+=======
+      
+>>>>>>> fd77f2beab9fd50e5ce8054397180d2740aac2c1
     </footer>
     <div id="scrollstyle" class="row">
-      <a href="https://www.instagram.com/bestcoastisclear/" class="fa fa-instagram"></a>
-      <br>
-      <a href="#" class="fa fa-linkedin"></a>
-      <br>
-      <a href="#" class="fa fa-facebook"></a>
     <a href="#" id="scroll" onmousedown="resetScroller('logo');">search another beach...</a>
-       
+<<<<<<< HEAD
   </div>
   </div>
+=======
+    </div>
+    
+>>>>>>> fd77f2beab9fd50e5ce8054397180d2740aac2c1
 </body>
 </html>

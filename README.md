@@ -1,11 +1,16 @@
 # CoastIsClear
 
 
-API
+## Welcome to CoastIsClear
 
-vvv Place Data = Location: Weather Forecast, Temp, Water temp
+<img width="200" align = "center" alt="PlentyofThyme" src="/assets/images/water2.jpg">
 
-Page
+### Project Description
+
+CoastIsClear is a single-page application which allows users to check what conditions are like at any searched beach. 
+
+Written with JQuery, utilizes AJAX queries to Google Places API and StormGlass API
+
 
 
 https://aramisdiaz.github.io/CoastIsClear/

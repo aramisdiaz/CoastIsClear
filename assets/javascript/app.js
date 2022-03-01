@@ -71,8 +71,8 @@ $(window).on("scroll", function() {
       //1970-01-11 00:00
   
       start = moment().format("YYYY-MM-DD HH:MM")
-      latitude = response.results.geometry.location.lat;
-      longitude = response.results.geometry.location.lng;
+      latitude = response.results[0].geometry.location.lat;
+      longitude = response.results[0].geometry.location.lng;
       params = "waterTemperature,airTemperature,cloudCover,gust,precipitation"
       // Transfer content to HTML IMPORTANT
 

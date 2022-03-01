@@ -51,7 +51,7 @@ $(window).on("scroll", function() {
 
   // Here we run our AJAX call to the Google Places API
 
-  var MAPqueryURL = "https://cors-proxy.htmldriven.com/?url=https://maps.googleapis.com/maps/api/place/textsearch/json?query=beaches+in+" + place + "&key=" + mapAPIKey;
+  var MAPqueryURL = "https://thingproxy.freeboard.io/fetch/https://maps.googleapis.com/maps/api/place/textsearch/json?query=beaches+in+" + place + "&key=" + mapAPIKey;
 
   $.ajax({
     url: MAPqueryURL,

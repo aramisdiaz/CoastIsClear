@@ -51,7 +51,7 @@ $(window).on("scroll", function() {
 
   // Here we run our AJAX call to the Google Places API
 
-  var MAPqueryURL = "https://api.allorigins.win/get?url=https://maps.googleapis.com/maps/api/place/textsearch/json?query=beaches+in+" + place + "&key=" + mapAPIKey;
+  var MAPqueryURL = "https://api.allorigins.win/get?url=https://maps.googleapis.com/maps/api/place/textsearch/json?query=beaches%in%" + place + "&key=" + mapAPIKey;
 
   $.ajax({
     url: MAPqueryURL,

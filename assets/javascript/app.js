@@ -19,7 +19,7 @@ $(window).on("scroll", function() {
 })
 
   // This is our API key
-  var mapAPIKey = "AIzaSyCAgC_4Ah49trBRbFVc3emcuZ-vzz8yEcA";
+  var mapAPIKey = "AIzaSyAZiLQptEB-5EImyDge73sg-Hx83H-bFy0";
   var wtrAPIKey = "cd080552-9bd7-11ea-b3e2-0242ac130002-cd080606-9bd7-11ea-b3e2-0242ac130002";
 
   // Here we are building the URL we need to query the database
